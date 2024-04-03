@@ -12,4 +12,6 @@ public interface QuestionDao extends JpaRepository<Questions, Integer> {
     // JPA will automatically return a list according to category, you don't have to write
     // separate sql queries.
     List<Questions> findByCategory(String category);
+
+//    void updateQuestionById(Integer id, Questions updatedQuestion);
 }

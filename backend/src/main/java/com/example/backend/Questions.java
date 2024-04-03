@@ -17,7 +17,6 @@ import java.util.Objects;
 public class Questions {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String questionsTitle;
     private String option1;
