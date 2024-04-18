@@ -2,6 +2,7 @@ package com.example.backend.controller;
 
 import com.example.backend.model.QuestionWrapper;
 import com.example.backend.model.Questions;
+import com.example.backend.model.Response;
 import com.example.backend.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,5 +29,10 @@ public class QuizController {
         // we have to send the client all questions and options but we don't have to send
         // right answer to the client
         return quizService.getQuizQuestions(id);
+    }
+
+    @PostMapping("submit/{id}")
+    public ResponseEntity<Integer> submitQuiz (@PathVariable Integer id, @RequestBody List<Response> responses){
+        return quizService.calculateResult(id, responses);
     }
 }
